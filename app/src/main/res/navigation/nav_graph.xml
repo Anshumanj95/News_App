@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/breakingNewsFragment">
+
+    <fragment
+        android:id="@+id/breakingNewsFragment"
+        android:name="com.example.news.ui.fragments.BreakingNewsFragment"
+        android:label="BreakingNewsFragment" >
+        <action
+            android:id="@+id/action_breakingNewsFragment_to_filterFragment"
+            app:destination="@id/filterFragment"
+            app:popUpTo="@id/breakingNewsFragment" />
+        <action
+            android:id="@+id/action_breakingNewsFragment_to_articleFragment"
+            app:destination="@id/articleFragment"
+            app:popUpTo="@id/breakingNewsFragment" />
+        <action
+            android:id="@+id/action_breakingNewsFragment_to_savedNewsFragment"
+            app:destination="@id/savedNewsFragment"
+            app:popUpTo="@id/breakingNewsFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_breakingNewsFragment_to_searchNewsFragment"
+            app:destination="@id/searchNewsFragment"
+            app:popUpTo="@id/breakingNewsFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_breakingNewsFragment_to_gameFragment"
+            app:destination="@id/gameFragment"
+            app:popUpTo="@id/breakingNewsFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedNewsFragment"
+        android:name="com.example.news.ui.fragments.SavedNewsFragment"
+        android:label="SavedNewsFragment" >
+        <action
+            android:id="@+id/action_savedNewsFragment_to_articleFragment"
+            app:destination="@id/articleFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/savedNewsFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchNewsFragment"
+        android:name="com.example.news.ui.fragments.SearchNewsFragment"
+        android:label="SearchNewsFragment" >
+        <action
+            android:id="@+id/action_searchNewsFragment_to_articleFragment"
+            app:destination="@id/articleFragment"
+            app:popUpTo="@id/searchNewsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.example.news.ui.fragments.ArticleFragment"
+        android:label="ArticleFragment" >
+        <argument
+            android:name="article"
+            app:argType="com.example.news.models.Article" />
+    </fragment>
+    <fragment
+        android:id="@+id/filterFragment"
+        android:name="com.example.news.ui.fragments.FilterFragment"
+        android:label="FilterFragment" >
+        <action
+            android:id="@+id/action_filterFragment_to_categoryFragment3"
+            app:destination="@id/categoryFragment"
+            app:popUpTo="@id/breakingNewsFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.example.news.ui.fragments.CategoryFragment"
+        android:label="CategoryFragment" >
+        <argument
+            android:name="category"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_categoryFragment_to_articleFragment2"
+            app:destination="@id/articleFragment"
+            app:popUpTo="@id/categoryFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_categoryFragment_to_filterFragment"
+            app:destination="@id/filterFragment"
+            app:popUpTo="@id/categoryFragment" />
+        <action
+            android:id="@+id/action_categoryFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.news.ui.fragments.GameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" />
+</navigation>
